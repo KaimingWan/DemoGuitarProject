@@ -29,13 +29,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',  # admin theme plugin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'demo',
+    'web_apps.release_news',  # release news
+    'django_summernote',  # RTE plugin
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,9 +85,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-CN'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -97,3 +99,37 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# --------------------------------------------user setting area---------------------------------------------------------
+
+# choose a settings file to use
+os.environ['DJANGO_SETTINGS_MODULE'] = 'DemoGuitarProject.settings'
+
+# set the directory for uploading
+MEDIA_URL = "upload/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "upload")
+
+# TEMPLATE zh_CN
+FILE_CHARSET = "utf-8"
+DEFAULT_CHARSET = 'utf-8'
+
+# suit settings
+SUIT_CONFIG = {
+
+    'ADMIN_NAME': '呆萌后台管理中心',  # 设置后台管理的名称
+
+    'MENU': (
+
+        # Rename app and set icon
+        {'app': 'release_news', 'label': '图文管理', 'models':
+            (
+                'Pages',
+                {'label': '发布新闻', 'url': 'release_news.page.add'}  # 通过url来跳转到相应的页面
+
+            )
+         },
+
+        {'app': 'django_summernote', 'label': '附件管理'},
+
+    )
+}
