@@ -1,7 +1,7 @@
-__author__ = 'Kami Wan'
+from django.shortcuts import render
 
-from django.http import HttpResponse
+__author__ = 'Kami Wan'
 
 
 def index(request):
-    return HttpResponse("Hello world ! ")
+    return render(request, 'base.html')

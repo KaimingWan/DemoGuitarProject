@@ -2,9 +2,232 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <!--定义默认的模板block块,不覆盖则默认显示这些内容-->
+    <title>{% block title %}呆萌吉他社{% endblock %}</title>
 </head>
+
+
 <body>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" property="">
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" property="">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!--载入静态文件-->
+{% load staticfiles %}
+
+
+<!--默认导航栏模板-->
+{% block navigation_bar %}
+    <div class="container">
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+
+
+                <img alt="1600x250" class="img-responsive" src="{% static "img/demoguitar.png" %}"/>
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1"><span
+                                class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                                class="icon-bar"></span><span class="icon-bar"></span></button>
+                        <a class="navbar-brand" href="#">呆萌吉他社</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="#">首页</a>
+                            </li>
+                            <li>
+                                <a href="#">社团风采</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">工具<strong
+                                        class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">吉他谱</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">软件下载</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control"/>
+                            </div>
+                            <button type="submit" class="btn btn-default">搜索</button>
+                        </form>
+
+                    </div>
+
+                </nav>
+                <div class="carousel slide" id="carousel-396218">
+                    <ol class="carousel-indicators">
+                        <li class="active" data-slide-to="0" data-target="#carousel-396218">
+                        </li>
+                        <li data-slide-to="1" data-target="#carousel-396218">
+                        </li>
+                        <li data-slide-to="2" data-target="#carousel-396218">
+                        </li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img alt="1600x500"
+                                 src="{% static "img/slide1.jpg" %}"/>
+
+                            <div class="carousel-caption">
+                                <h4>
+                                    呆萌吉他社
+                                </h4>
+
+                                <p>
+                                    快乐学吉他！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="1600x500"
+                                 src="{% static "img/slide2.png" %}"/>
+
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="1600x500"
+                                 src="{% static "img/slide3.jpg" %}"/>
+
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-396218" data-slide="prev"><span
+                            class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control"
+                                                                                    href="#carousel-396218"
+                                                                                    data-slide="next"><span
+                        class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-8 column">
+                        <h3>
+                            呆萌吉他社
+                        </h3>
+
+                        <p>
+                            <em>呆萌吉他社</em> 是隶属于浙江工业大学的正式社团，秉承 <strong>草根路线</strong>
+                            <small>Ruby</small>
+                        </p>
+                    </div>
+                    <div class="col-md-4 column">
+                        <img alt="140x140"
+                             src="{% static "img/wechat.png" %}"/>
+
+                        <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4>
+                                扫一扫
+                            </h4>关注呆萌吉他社官方微信，海量免费福利等着您！
+                        </div>
+                    </div>
+                </div>
+                <div class="tabbable" id="tabs-582024">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#" data-toggle="tab">社团动态</a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="tab">精彩瞬间</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img alt="300x200"
+                                 src="{% static "img/p1.jpg" %}"/>
+
+                            <div class="caption">
+                                <h3>
+                                    第一届小和山吉他大赛圆满落幕！
+                                </h3>
+
+                                <p>
+                                    demo demo
+                                </p>
+
+                                <p class="text-right">
+                                    <a class="btn" href="#">更多</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img alt="300x200"
+                                 src="{% static "img/p2.jpg" %}"/>
+
+                            <div class="caption">
+                                <h3>
+                                    第一届小和山吉他大赛圆满落幕！
+                                </h3>
+
+                                <p>
+                                    demo demo
+                                </p>
+
+                                <p class="text-right">
+                                    <a class="btn" href="#">更多</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img alt="300x200"
+                                 src="{% static "img/p3.jpg" %}"/>
+
+                            <div class="caption">
+                                <h3>
+                                    第一届小和山吉他大赛圆满落幕！
+                                </h3>
+
+                                <p>
+                                    demo demo
+                                </p>
+
+                                <p class="text-right">
+                                    <a class="btn" href="#">更多</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+<!--默认底部模板-->
+{% block bottom %}
+    <div class="row">
+        <div class="span12">
+        </div>
+    </div>
+{% endblock %}
+
 
 </body>
 </html>

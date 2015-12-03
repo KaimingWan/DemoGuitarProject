@@ -101,6 +101,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # --------------------------------------------user setting area---------------------------------------------------------
+# 指定static files的位置，否则无法加载静态资源
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 
 # choose a settings file to use
 os.environ['DJANGO_SETTINGS_MODULE'] = 'DemoGuitarProject.settings'
